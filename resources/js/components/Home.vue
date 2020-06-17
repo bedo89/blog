@@ -1,26 +1,28 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+<div class="">
+    <div class="media simple-post" v-for="post in posts" :key="post.id">
+        <img class="mr-3" :src="'img/' + post.image " alt="Generic placeholder image">
+        <div class="media-body">
+            <h4 class="mt-0"><a :href="'post_details/' + post.slug + '.html'">{{ post.title }}</a></h4>
+            {{ post.body.substr(0, 180)}}
+            <ul class="list-inline list-unstyled d-flex post-info">
+                <li><span><i class="fa fa-user"></i> posted by : <strong class="text-primary">{{ post.user.name }}</strong> </span></li>
+                <li>|</li>
+                <li><span><i class="fa fa-calendar"></i> {{ post.added_at }}, 8 hours </span></li>
+                <li>|</li>
+                <span><i class="fa fa-comment"></i> {{ post.comments_count }} comments</span>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
+</div>
 </template>
 
 <script>
     export default {
         data() {
             return{
-                posts: {
-                    'name' : 'ahmed'
-                }
+                posts: []
             }
         },
         mounted() {
@@ -30,7 +32,10 @@
         methods:{
             getPosts(){
                 axios.get('api/posts')
-                    .then(res => console.log(res))
+                    .then( res => {
+                            this.posts = res.data
+                        }
+                    )
                     .then(err => console.log(err))
             }
         }

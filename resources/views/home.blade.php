@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                 </div>
-                <br>
+
                 <div class="media simple-post">
                     <img class="mr-3" src="img/p2.jpg" alt="Generic placeholder image">
                     <div class="media-body">
@@ -42,7 +42,7 @@
                         </ul>
                     </div>
                 </div>
-                <br>
+
                 <div class="media simple-post">
                     <img class="mr-3" src="img/p3.jpg" alt="Generic placeholder image">
                     <div class="media-body">
