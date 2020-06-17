@@ -9,10 +9,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="my-4">Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
+                <home></home>
                 <!-- Blog Post -->
                 <div class="media simple-post">
                     <img class="mr-3" src="img/p1.jpg" alt="Generic placeholder image">
@@ -29,6 +26,7 @@
                         </ul>
                     </div>
                 </div>
+                <br>
                 <div class="media simple-post">
                     <img class="mr-3" src="img/p2.jpg" alt="Generic placeholder image">
                     <div class="media-body">
@@ -44,6 +42,7 @@
                         </ul>
                     </div>
                 </div>
+                <br>
                 <div class="media simple-post">
                     <img class="mr-3" src="img/p3.jpg" alt="Generic placeholder image">
                     <div class="media-body">
