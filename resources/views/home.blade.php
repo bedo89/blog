@@ -9,9 +9,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="my-4">Page Heading
-                    <small>Secondary Test</small>
-                </h1>
+                {{--<h1 class="my-4">Page Heading<small>Secondary Test</small></h1>--}}
 
                 <global-home></global-home>
 
