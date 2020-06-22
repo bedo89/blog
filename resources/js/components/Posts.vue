@@ -1,6 +1,7 @@
 <template>
-<div class="">
-    <div class="media simple-post" v-for="post in posts" :key="post.id">
+<div class="row">
+    <div class="col-md-8">
+        <div class="media simple-post" v-for="post in posts" :key="post.id">
         <img class="mr-3" :src="'img/' + post.image " alt="Generic placeholder image">
         <div class="media-body">
             <h4 class="mt-0">
@@ -17,15 +18,23 @@
             </ul>
         </div>
     </div>
+    </div>
+
+    <!-- Categories -->
+    <categories></categories>
 </div>
 </template>
 
 <script>
+    import categories from "./Categories"
     export default {
         data() {
             return{
                 posts: []
             }
+        },
+        components:{
+            categories
         },
         mounted() {
             console.log('Component mounted.')
