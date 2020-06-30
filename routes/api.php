@@ -16,7 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('testo', function (){
+    dd('helllo');
+});
 //Route::get('posts', 'PostController@index');
 Route::apiResource('posts', 'PostController');
 Route::apiResource('categories', 'CategoryController');
+Route::get('category/{slug}/posts', 'PostController@categoryPosts');

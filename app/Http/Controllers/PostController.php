@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -110,5 +111,17 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function categoryPosts($slug)
+    {
+        $category = Category::whereSlug($slug)->first();
+        $posts = Post::whereCategoryId($category->id)->with('user')->get();
+        foreach ($posts as $post){
+            $post->setAttribute('added_at', $post->created_at->diffForHumans());
+            $post->setAttribute('comments_count', $post->comments->count());
+        }
+
+        return response()->json($posts);
     }
 }
