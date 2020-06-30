@@ -1926,26 +1926,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2170,6 +2150,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Categories__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories */ "./resources/js/components/Categories.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37770,73 +37768,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-4" }, [
-    _vm._m(0),
+  return _c("div", { staticClass: "card my-4" }, [
+    _c("h5", { staticClass: "card-header" }, [_vm._v("Categories")]),
     _vm._v(" "),
-    _c("div", { staticClass: "card my-4" }, [
-      _c("h5", { staticClass: "card-header" }, [_vm._v("Categories")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-6" }, [
-            _vm.categories.length > 0
-              ? _c(
-                  "ul",
-                  { staticClass: "list-unstyled mb-0" },
-                  _vm._l(_vm.categories, function(category, index) {
-                    return _c(
-                      "li",
-                      { key: index },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: "/category/" + category.slug + "/posts"
-                            }
-                          },
-                          [_vm._v(_vm._s(category.name))]
-                        )
-                      ],
-                      1
-                    )
-                  }),
-                  0
-                )
-              : _vm._e()
-          ])
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-6" }, [
+          _vm.categories.length > 0
+            ? _c(
+                "ul",
+                { staticClass: "list-unstyled mb-0" },
+                _vm._l(_vm.categories, function(category, index) {
+                  return _c(
+                    "li",
+                    { key: index },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: { to: "/category/" + category.slug + "/posts" }
+                        },
+                        [_vm._v(_vm._s(category.name))]
+                      )
+                    ],
+                    1
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card my-4" }, [
-      _c("h5", { staticClass: "card-header" }, [_vm._v("Search")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "input-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Search for..." }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "input-group-btn" }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-              [_vm._v("Go!")]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38127,82 +38093,108 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row" },
-    [
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        _vm._l(_vm.posts, function(post) {
-          return _c("div", { key: post.id, staticClass: "media simple-post" }, [
-            _c("img", {
-              staticClass: "mr-3",
-              attrs: {
-                src: "img/" + post.image,
-                alt: "Generic placeholder image"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "media-body" }, [
-              _c(
-                "h4",
-                { staticClass: "mt-0" },
-                [
-                  _c("router-link", { attrs: { to: "/post/" + post.slug } }, [
-                    _vm._v(_vm._s(post.title))
-                  ])
-                ],
-                1
-              ),
-              _vm._v(
-                "\n                " +
-                  _vm._s(post.body.substr(0, 180)) +
-                  "\n                "
-              ),
-              _c(
-                "ul",
-                { staticClass: "list-inline list-unstyled d-flex post-info" },
-                [
-                  _c("li", [
-                    _c("span", [
-                      _c("i", { staticClass: "fa fa-user" }),
-                      _vm._v(" posted by : "),
-                      _c("strong", { staticClass: "text-primary" }, [
-                        _vm._v(_vm._s(post.user.name))
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("|")]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("span", [
-                      _c("i", { staticClass: "fa fa-calendar" }),
-                      _vm._v(" " + _vm._s(post.added_at) + ", 8 hours ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("|")]),
-                  _vm._v(" "),
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-md-8" },
+      _vm._l(_vm.posts, function(post) {
+        return _c("div", { key: post.id, staticClass: "media simple-post" }, [
+          _c("img", {
+            staticClass: "mr-3",
+            attrs: {
+              src: "img/" + post.image,
+              alt: "Generic placeholder image"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "media-body" }, [
+            _c(
+              "h4",
+              { staticClass: "mt-0" },
+              [
+                _c("router-link", { attrs: { to: "/post/" + post.slug } }, [
+                  _vm._v(_vm._s(post.title))
+                ])
+              ],
+              1
+            ),
+            _vm._v(
+              "\n                " +
+                _vm._s(post.body.substr(0, 180)) +
+                "\n                "
+            ),
+            _c(
+              "ul",
+              { staticClass: "list-inline list-unstyled d-flex post-info" },
+              [
+                _c("li", [
                   _c("span", [
-                    _c("i", { staticClass: "fa fa-comment" }),
-                    _vm._v(" " + _vm._s(post.comments_count) + " comments")
+                    _c("i", { staticClass: "fa fa-user" }),
+                    _vm._v(" posted by : "),
+                    _c("strong", { staticClass: "text-primary" }, [
+                      _vm._v(_vm._s(post.user.name))
+                    ])
                   ])
-                ]
-              )
-            ])
+                ]),
+                _vm._v(" "),
+                _c("li", [_vm._v("|")]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", [
+                    _c("i", { staticClass: "fa fa-calendar" }),
+                    _vm._v(" " + _vm._s(post.added_at) + ", 8 hours ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [_vm._v("|")]),
+                _vm._v(" "),
+                _c("span", [
+                  _c("i", { staticClass: "fa fa-comment" }),
+                  _vm._v(" " + _vm._s(post.comments_count) + " comments")
+                ])
+              ]
+            )
           ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("categories")
-    ],
-    1
-  )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-4" },
+      [_vm._m(0), _vm._v(" "), _c("categories")],
+      1
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card my-4" }, [
+      _c("h5", { staticClass: "card-header" }, [_vm._v("Search")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Search for..." }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "input-group-btn" }, [
+            _c(
+              "button",
+              { staticClass: "btn btn-secondary", attrs: { type: "button" } },
+              [_vm._v("Go!")]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
