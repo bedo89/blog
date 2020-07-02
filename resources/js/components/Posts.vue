@@ -6,7 +6,7 @@
         </div>
 
         <div class="col-md-8" v-else>
-            <div class="media simple-post" v-for="post in posts" :key="post.id">
+            <div class="media simple-post" v-for="post in posts.data" :key="post.id">
                 <img class="mr-3" :src="'img/' + post.image " alt="Generic placeholder image">
                 <div class="media-body">
                     <h4 class="mt-0">
@@ -24,6 +24,7 @@
                     </ul>
                 </div>
             </div>
+            <pagination :data="posts" @pagination-change-page="getPosts"></pagination>
         </div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
@@ -55,7 +56,7 @@
     export default {
         data() {
             return {
-                posts: [],
+                posts: {},
                 searchpost: '',
                 issearching: false
             }
@@ -86,15 +87,13 @@
             }
         },
         mounted() {
-            console.log('Component mounted.')
             this.getPosts();
         },
         methods: {
-            getPosts() {
-                console.log(this.issearching);
-                axios.get('api/posts')
+            getPosts(page = 1) {
+                axios.get('api/posts?page=' + page)
                     .then(res => {
-                            this.posts = res.data
+                            this.posts = res.data;
                             localStorage.setItem('posts', JSON.stringify(this.posts));
                         }
                     )
