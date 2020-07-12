@@ -67,9 +67,10 @@
         watch:{
             searchpost(query){
                 if(query.length > 0){
+
                     this.issearching=true;
 
-                    axios.get('/api/searchposts/'+query)
+                    axios.get('/api/searchposts/'+query+'?page=1')
                         .then(res => {
 
                             this.posts = res.data;
@@ -83,7 +84,7 @@
                     let oldposts = JSON.parse(localStorage.getItem('posts'));
                     this.posts = oldposts;
                 }
-                console.log(this.issearching);
+                this.issearching= false;
             }
         },
         mounted() {

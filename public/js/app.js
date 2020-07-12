@@ -2220,7 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (query.length > 0) {
         this.issearching = true;
-        axios.get('/api/searchposts/' + query).then(function (res) {
+        axios.get('/api/searchposts/' + query + '?page=1').then(function (res) {
           _this.posts = res.data;
           _this.issearching = false;
         })["catch"](function (err) {
@@ -2231,7 +2231,7 @@ __webpack_require__.r(__webpack_exports__);
         this.posts = oldposts;
       }
 
-      console.log(this.issearching);
+      this.issearching = false;
     }
   },
   mounted: function mounted() {
@@ -54554,8 +54554,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\wamp64\www\blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\wamp64\www\blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
