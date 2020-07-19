@@ -17,10 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('testo', function (){
-    dd('helllo');
+    //dd('helllo');
 });
 //Route::get('posts', 'PostController@index');
-Route::apiResource('posts', 'PostController');
+
 Route::apiResource('categories', 'CategoryController');
 Route::get('category/{slug}/posts', 'PostController@categoryPosts');
 Route::get('searchposts/{query}', 'PostController@searchposts');
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
+
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('posts', 'PostController');
+    Route::get('user', 'UserController@details');
+});
