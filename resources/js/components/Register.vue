@@ -38,7 +38,8 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block" :disabled="!isValidForm">Create Account</button>
+                                <button type="submit" class="btn btn-primary btn-block"
+                                        :disabled="!isValidForm" @click.prevent="submitRegister">Create Account</button>
                             </div>
                             <div class="clearfix">
                                 <a href="#" class="pull-right">Forgot Password?</a>
@@ -81,6 +82,11 @@
             isValidForm(){
                 return this.firstname.length > 4 && this.lastname.length > 4
                     && (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) && this.password.length > 7;
+            }
+        },
+        methods:{
+            submitRegister(){
+                console.log('submitted');
             }
         }
     }
