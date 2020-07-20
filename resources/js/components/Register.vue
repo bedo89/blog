@@ -13,15 +13,9 @@
                         <form action="/examples/actions/confirmation.php" method="post" nonvalidate>
                             <h2 class="text-center">Create New Account</h2>
                             <div class="form-group">
-                                <input type="text" class="form-control" v-model="firstname" placeholder="Firstname">
-                                <div class="text-danger" v-show="firstnameError">
-                                    ... This first name is too short !!
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" v-model="lastname" placeholder="Lastname">
-                                <div class="text-danger" v-show="lastnameError">
-                                    ... This last name is too short !!
+                                <input type="text" class="form-control" v-model="name" placeholder="Name">
+                                <div class="text-danger" v-show="nameError">
+                                    ... This name is too short !!
                                 </div>
                             </div>
                             <div class="form-group">
@@ -57,21 +51,16 @@
 
 <script>
     export default {
-        name: "Register",
         data(){
             return {
-                firstname : '',
-                lastname : '',
+                name : '',
                 password : '',
                 email : ''
             }
         },
         computed:{
-            firstnameError(){
-                return this.firstname.length > 0 && this.firstname.length < 4;
-            },
-            lastnameError(){
-                return this.lastname.length > 0 && this.lastname.length < 4;
+            nameError(){
+                return this.name.length > 0 && this.name.length < 4;
             },
             emailError(){
                 return this.email.length > 0 && !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email));
@@ -80,13 +69,28 @@
                 return this.password.length > 0 && this.password.length < 7;
             },
             isValidForm(){
-                return this.firstname.length > 4 && this.lastname.length > 4
+                return this.name.length > 4
                     && (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) && this.password.length > 7;
             }
         },
         methods:{
             submitRegister(){
-                console.log('submitted');
+
+
+
+
+                var name = this.name;
+                var email = this.email;
+                var password = this.password;
+                //let {name, email, password} = this;
+
+                this.$store.dispatch('RegisterUser', {name, email, password})
+                //let {name, email, password} = this;
+                //this.$store.commit('setUserToken', {userToken : 'fdfdsadasd sadsa'})
+                //console.log('submitted');
+                //this.$store.state.userToken = "ahmed";
+                //console.log(this.$store.getters.isLogged);
+                //this.$store.commit('setUserToken', {userToken : 'fdfdsadasd sadsa'})
             }
         }
     }
