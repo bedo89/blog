@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->with('user')->paginate(1);
+        $posts = Post::latest()->with('user')->paginate(2);
         foreach ($posts as $post){
             $post->setAttribute('added_at', $post->created_at->diffForHumans());
             $post->setAttribute('comments_count', $post->comments->count());

@@ -76,9 +76,6 @@
         methods:{
             submitRegister(){
 
-
-
-
                 var name = this.name;
                 var email = this.email;
                 var password = this.password;
